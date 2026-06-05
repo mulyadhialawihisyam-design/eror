@@ -1,0 +1,220 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Situs Sedang Diperbaiki</title>
+    <style>
+        /* Mengatur halaman penuh tanpa scroll */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            background: radial-gradient(circle, #1a0b2e 0%, #06020c 100%);
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            overflow: hidden;
+            color: #ffffff;
+            text-align: center;
+        }
+
+        .container {
+            padding: 20px;
+            z-index: 2;
+        }
+
+        /* Pembungkus karakter untuk animasi melayang */
+        .pokemon-container {
+            position: relative;
+            width: 240px;
+            height: 240px;
+            margin: 0 auto 15px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            animation: float 3.5s ease-in-out infinite;
+        }
+
+        /* Gambar Gengar Lucu */
+        .gengar-img {
+            width: 100%;
+            height: auto;
+            position: relative;
+            z-index: 2;
+            filter: drop-shadow(0 10px 15px rgba(0, 0, 0, 0.5));
+        }
+
+        /* Efek pendaran aura ungu di belakang Gengar */
+        .gas-aura {
+            position: absolute;
+            width: 180px;
+            height: 180px;
+            background: rgba(148, 59, 227, 0.4);
+            border-radius: 50%;
+            filter: blur(35px);
+            z-index: 1;
+            animation: pulseGlow 1.75s ease-in-out infinite alternate;
+        }
+
+        /* Efek bayangan dinamis di lantai */
+        .shadow-floor {
+            width: 110px;
+            height: 10px;
+            background: rgba(0, 0, 0, 0.6);
+            border-radius: 50%;
+            margin: 0 auto 30px;
+            filter: blur(5px);
+            animation: shadowScale 3.5s ease-in-out infinite;
+        }
+
+        /* Gaya teks utama */
+        h1 {
+            font-size: 2.3rem;
+            margin-bottom: 10px;
+            letter-spacing: 1px;
+            background: linear-gradient(45deg, #c394ff, #8833db);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        p {
+            font-size: 1.05rem;
+            color: #bfaecf;
+            max-width: 520px;
+            margin: 0 auto 30px;
+            line-height: 1.6;
+        }
+
+        /* Desain Wadah Timer */
+        .countdown-container {
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+            margin-top: 20px;
+        }
+
+        /* Desain Kotak Angka Timer */
+        .time-box {
+            background: rgba(35, 18, 60, 0.6);
+            border: 1px solid rgba(148, 59, 227, 0.35);
+            padding: 15px;
+            border-radius: 12px;
+            min-width: 80px;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.4);
+            backdrop-filter: blur(5px);
+        }
+
+        .time-number {
+            display: block;
+            font-size: 2rem;
+            font-weight: bold;
+            color: #d8c2ff;
+            text-shadow: 0 0 10px rgba(176, 118, 255, 0.5);
+        }
+
+        .time-label {
+            font-size: 0.8rem;
+            color: #8f7fa3;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-top: 5px;
+            display: block;
+        }
+
+        /* KEYFRAMES ANIMASI */
+        
+        /* 1. Gerakan melayang naik turun */
+        @keyframes float {
+            0% { transform: translateY(0px); }
+            50% { transform: translateY(-18px); }
+            100% { transform: translateY(0px); }
+        }
+
+        /* 2. Aura cahaya ungu berdenyut */
+        @keyframes pulseGlow {
+            0% { transform: scale(0.95); opacity: 0.5; }
+            100% { transform: scale(1.15); opacity: 0.8; }
+        }
+
+        /* 3. Bayangan mengecil saat Gengar naik */
+        @keyframes shadowScale {
+            0% { transform: scale(1); opacity: 0.6; }
+            50% { transform: scale(0.75); opacity: 0.2; }
+            100% { transform: scale(1); opacity: 0.6; }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <!-- Area Animasi Pokémon Gengar Lucu -->
+        <div class="pokemon-container">
+            <div class="gas-aura"></div>
+            <!-- Menggunakan tautan gambar baru yang Anda kirimkan -->
+            <img class="gengar-img" src="https://id.portal-pokemon.com/play/resources/pokedex/img/pm/47549471dc54feb8acd4b3de3a27ea8e9e9fd25c.png" alt="Gengar Lucu">
+        </div>
+        <div class="shadow-floor"></div>
+
+        <!-- Teks Keterangan Web Maintenance -->
+        <h1>Sedang Dalam Perbaikan</h1>
+        <p>Mohon maaf, website saat ini sedang diperbaiki dan diperbarui secara berkala oleh Pemilik. Kami akan segera kembali online dalam:</p>
+
+        <!-- Kotak Hitung Mundur (Timer) -->
+        <div class="countdown-container">
+            <div class="time-box">
+                <span class="time-number" id="days">07</span>
+                <span class="time-label">Hari</span>
+            </div>
+            <div class="time-box">
+                <span class="time-number" id="hours">00</span>
+                <span class="time-label">Jam</span>
+            </div>
+            <div class="time-box">
+                <span class="time-number" id="minutes">00</span>
+                <span class="time-label">Menit</span>
+            </div>
+            <div class="time-box">
+                <span class="time-number" id="seconds">00</span>
+                <span class="time-label">Detik</span>
+            </div>
+        </div>
+    </div>
+
+    <!-- Script JavaScript untuk Hitung Mundur Otomatis -->
+    <script>
+        // Mengatur waktu target: Tepat 7 hari dari sekarang
+        const targetDate = new Date();
+        targetDate.setDate(targetDate.getDate() + 7);
+
+        function updateCountdown() {
+            const now = new Date().getTime();
+            const difference = targetDate - now;
+
+            const days = Math.floor(difference / (1000 * 60 * 60 * 24));
+            const hours = Math.floor((difference % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+            const minutes = Math.floor((difference % (1000 * 60 * 60)) / (1000 * 60));
+            const seconds = Math.floor((difference % (1000 * 60)) / 1000);
+
+            document.getElementById("days").innerText = days < 10 ? "0" + days : days;
+            document.getElementById("hours").innerText = hours < 10 ? "0" + hours : hours;
+            document.getElementById("minutes").innerText = minutes < 10 ? "0" + minutes : minutes;
+            document.getElementById("seconds").innerText = seconds < 10 ? "0" + seconds : seconds;
+
+            if (difference < 0) {
+                clearInterval(interval);
+                document.querySelector(".countdown-container").innerHTML = "<div class='time-box' style='min-width:200px;'><span class='time-number'>ONLINE!</span></div>";
+            }
+        }
+
+        const interval = setInterval(updateCountdown, 1000);
+        updateCountdown();
+    </script>
+
+</body>
+</html>
